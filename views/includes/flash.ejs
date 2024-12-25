@@ -1,0 +1,14 @@
+<% if(typeof msg !== 'undefined' && msg.length){ %>
+      <div class="col-6 offset-3 alert alert-success mt-2 alert-dismissible fade show" role="alert">
+          <%= msg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<% } %>
+
+<% if(typeof errror !== 'undefined' && error.length){ %>
+  <div class="col-6 offset-3 alert alert-danger mt-2 alert-dismissible fade show" role="alert">
+      <%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+

@@ -1,0 +1,29 @@
+<% layout('./layouts/boilerPlate.ejs') -%>
+<body>
+    <div class="row mt-3">
+        <% if(country){ %>
+            <p>Country: <b><%=country.toUpperCase()%></b></p>
+        <% } %>
+        <% if(minPrice){ %>
+            <p>Min Price: <b><%=minPrice%></b></p>
+        <% } %>
+        <% for(let list of allList){ %>
+            <% if((country && list.country.toLowerCase()==country.toLowerCase()) || (minPrice && list.price>=minPrice) ){ %>
+                <div class="card listing-card">
+                    <a href="/listings/<%=list._id%>">
+                    <img src="<%= list.image.url %>" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text"><b><%= list.title %></b>
+                        <br> &#8377; <%=list.price.toLocaleString("en-IN")%>/night
+                      </p>
+                     
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+    <% if(!country && !minPrice){ %>
+            <h1>No Result Found!</h1>
+    <% } %>
+</body>

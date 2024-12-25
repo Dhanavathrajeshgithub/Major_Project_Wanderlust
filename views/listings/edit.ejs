@@ -1,0 +1,195 @@
+<body>
+    <div class="row mt-2 mb-2">
+        <div class="col-8 offset-2">
+            <h3>Edit your place...</h3>
+            <form method="post" action="/listings/<%=list._id%>?_method=patch" enctype="multipart/form-data" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="list[title]" value="<%=list.title%>" class="form-control title" required> 
+                    <div class="valid-feedback">Title Looks good!</div>
+                    <div class="invalid-feedback">Title required!</div>
+                </div> 
+                <div class="mb-3">
+                    <label for="description" class="form-label">description</label>
+                    <textarea placeholder="description" name="list[description]" class="form-control description" required><%=list.description%></textarea> 
+                    <div class="valid-feedback">description Looks good!</div>
+                    <div class="invalid-feedback">description required!</div>
+                </div>
+                <div class="mb-3 ">
+                    Original image <br>
+                    <img class="edit-img" src="<%=reducedImageUrl%>" alt="Old image">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload new image</label>
+                    <input name="list[image]" type="file" class="form-control image" value="<%=list.image.url%>"> 
+                    <div class="valid-feedback">image url Looks good!</div>
+                    <div class="invalid-feedback">image url required!</div>
+                </div>
+                <% if(list.category){ %>
+                    <div class="mb-3">
+                        Category: <br>
+                        <% if(list.category.includes("Trending")){ %>
+                            <label for="category1" class="form-label">Trending</label>
+                            <input type="checkbox" id="category1" name="list[category]" value="Trending" checked>
+                        <% } %>
+                        <% if(!list.category.includes("Trending")){ %>
+                            <label for="category1" class="form-label">Trending</label>
+                            <input type="checkbox" id="category1" name="list[category]" value="Trending">
+                        <% } %>
+    
+                        <% if(list.category.includes("Rooms")){ %>
+                            <label for="category2" class="form-label ms-2">Rooms</label>
+                            <input type="checkbox" id="category2" name="list[category]" value="Rooms" checked>
+                        <% } %>
+                        <% if(!list.category.includes("Rooms")){ %>
+                            <label for="category2" class="form-label ms-2">Rooms</label>
+                            <input type="checkbox" id="category2" name="list[category]" value="Rooms">
+                        <% } %>
+    
+                        <% if(list.category.includes("iconic cities")){ %>
+                            <label for="category3" class="form-label ms-2">iconic cities</label>
+                            <input type="checkbox" id="category3" name="list[category]" value="iconic cities" checked>
+                        <% } %>
+                        <% if(!list.category.includes("iconic cities")){ %>
+                            <label for="category3" class="form-label ms-2">iconic cities</label>
+                            <input type="checkbox" id="category3" name="list[category]" value="iconic cities">
+                        <% } %>
+    
+                        <% if(list.category.includes("Castles")){ %>
+                            <label for="category4" class="form-label ms-2">Castles</label>
+                            <input type="checkbox" id="category4" name="list[category]" value="Castles" checked>
+                        <% } %>
+                        <% if(!list.category.includes("Castles")){ %>
+                            <label for="category4" class="form-label ms-2">Castles</label>
+                            <input type="checkbox" id="category4" name="list[category]" value="Castles">
+                        <% } %>
+    
+                        <% if(list.category.includes("Farm")){ %>
+                            <label for="category5" class="form-label ms-2">Farm</label>
+                            <input type="checkbox" id="category5" name="list[category]" value="Farm" checked>
+                        <% } %>
+                        <% if(!list.category.includes("Farm")){ %>
+                            <label for="category5" class="form-label ms-2">Farm</label>
+                            <input type="checkbox" id="category5" name="list[category]" value="Farm">
+                        <% } %>
+    
+                        <% if(list.category.includes("Mountains")){ %>
+                            <label for="category6" class="form-label ms-2">Mountains</label>
+                            <input type="checkbox" id="category6" name="list[category]" value="Mountains"  checked>
+                        <% } %>
+                        <% if(!list.category.includes("Mountains")){ %>
+                            <label for="category6" class="form-label ms-2">Mountains</label>
+                            <input type="checkbox" id="category6" name="list[category]" value="Mountains" >
+                        <% } %>
+    
+                        <% if(list.category.includes("Amazing pools")){ %>
+                            <label for="category7" class="form-label ms-2">Amazing pools</label>
+                            <input type="checkbox" id="category7" name="list[category]" value="Amazing pools"  checked>
+                        <% } %>
+                        <% if(!list.category.includes("Amazing pools")){ %>
+                            <label for="category7" class="form-label ms-2">Amazing pools</label>
+                            <input type="checkbox" id="category7" name="list[category]" value="Amazing pools" >
+                        <% } %>
+    
+                        <% if(list.category.includes("Arctic")){ %>
+                            <label for="category8" class="form-label ms-2">Arctic</label>
+                            <input type="checkbox" id="category8" name="list[category]" value="Arctic" checked>
+                        <% } %>
+                        <% if(!list.category.includes("Arctic")){ %>
+                            <label for="category8" class="form-label ms-2">Arctic</label>
+                            <input type="checkbox" id="category8" name="list[category]" value="Arctic">
+                        <% } %>
+    
+                        <% if(list.category.includes("Camping")){ %>
+                            <label for="category9" class="form-label ms-2">Camping</label>
+                            <input type="checkbox" id="category9" name="list[category]" value="Camping"  checked>
+                        <% } %>
+                        <% if(!list.category.includes("Camping")){ %>
+                            <label for="category9" class="form-label ms-2">Camping</label>
+                            <input type="checkbox" id="category9" name="list[category]" value="Camping" >
+                        <% } %>
+    
+                        <% if(list.category.includes("Beach")){ %>
+                            <label for="category10" class="form-label ms-2">Beach</label>
+                            <input type="checkbox" id="category10" name="list[category]" value="Beach"  checked>
+                        <% } %>
+                        <% if(!list.category.includes("Beach")){ %>
+                            <label for="category10" class="form-label ms-2">Beach</label>
+                            <input type="checkbox" id="category10" name="list[category]" value="Beach">
+                        <% } %>
+    
+                        <% if(list.category.includes("National park")){ %>
+                            <label for="category11" class="form-label ">National park</label>
+                            <input type="checkbox" id="category11" name="list[category]" value="National park"  checked>
+                        <% } %>
+                        <% if(!list.category.includes("National park")){ %>
+                            <label for="category11" class="form-label ">National park</label>
+                            <input type="checkbox" id="category11" name="list[category]" value="National park" >
+                        <% } %>
+                        
+                    </div>
+                <% } %>
+
+                <% if(!list.category){ %>
+                    <div class="mb-3">
+                        Category: <br>                     
+                        <label for="category1" class="form-label">Trending</label>
+                        <input type="checkbox" id="category1" name="list[category]" value="Trending">                
+                    
+                        <label for="category2" class="form-label ms-2">Rooms</label>
+                        <input type="checkbox" id="category2" name="list[category]" value="Rooms">               
+                    
+                        <label for="category3" class="form-label ms-2">iconic cities</label>
+                        <input type="checkbox" id="category3" name="list[category]" value="iconic cities">                  
+                
+                        <label for="category4" class="form-label ms-2">Castles</label>
+                        <input type="checkbox" id="category4" name="list[category]" value="Castles">
+                                       
+                        <label for="category5" class="form-label ms-2">Farm</label>
+                        <input type="checkbox" id="category5" name="list[category]" value="Farm">                  
+                    
+                        <label for="category6" class="form-label ms-2">Mountains</label>
+                        <input type="checkbox" id="category6" name="list[category]" value="Mountains" >
+                                       
+                        <label for="category7" class="form-label ms-2">Amazing pools</label>
+                        <input type="checkbox" id="category7" name="list[category]" value="Amazing pools" >
+                    
+                        <label for="category8" class="form-label ms-2">Arctic</label>
+                        <input type="checkbox" id="category8" name="list[category]" value="Arctic">
+                    
+                        <label for="category9" class="form-label ms-2">Camping</label>
+                        <input type="checkbox" id="category9" name="list[category]" value="Camping" >
+                    
+                        <label for="category10" class="form-label ms-2">Beach</label>
+                        <input type="checkbox" id="category10" name="list[category]" value="Beach">
+                    
+                        <label for="category11" class="form-label ">National park</label>
+                        <input type="checkbox" id="category11" name="list[category]" value="National park" >                      
+                    </div>
+                <% } %>
+                
+                <div class="mb-3">
+                    <label for="price" class="form-label">price</label>
+                    <input placeholder="price" name="list[price]" class="form-control price" value="<%=list.price%>" required>
+                    <div class="valid-feedback">price Looks good!</div>
+                    <div class="invalid-feedback">price required!</div>
+                </div> 
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="location" class="form-label">location</label>
+                        <input placeholder="location" name="list[location]" class="form-control location" value="<%=list.location%>" required> 
+                        <div class="valid-feedback">location Looks good!</div>
+                        <div class="invalid-feedback">location required!</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">country</label>
+                        <input placeholder="country" name="list[country]" class="form-control country" value="<%=list.country%>" required> 
+                        <div class="valid-feedback">country Looks good!</div>
+                        <div class="invalid-feedback">country required!</div>
+                    </div>
+                </div>
+                <button class="edit-btn btn btn-dark">Edit</button>
+            </form>
+        </div>
+</body>
+<% layout('./layouts/boilerPlate.ejs') -%>

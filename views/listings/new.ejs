@@ -1,0 +1,73 @@
+<% layout('./layouts/boilerPlate.ejs') -%>
+
+<div class="row mt-2 mb-2">
+    <div class="col-8 offset-2">
+        <h3>Add Your Location...</h3>
+        <form method="post" action="/listings" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input placeholder="title" class="form-control title" name="list[title]" required> 
+                <div class="valid-feedback">Title Looks good!</div>
+                <div class="invalid-feedback">Title required!</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">description</label>
+                <textarea placeholder="description" name="list[description]" class="form-control description" required></textarea> 
+                <div class="valid-feedback">description Looks good!</div>
+                <div class="invalid-feedback">description required!</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input  name="list[image]" type="file" class="form-control image"> 
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">price</label>
+                <input placeholder="price" name="list[price]" class="form-control price" required>
+                <div class="valid-feedback">price Looks good!</div>
+                <div class="invalid-feedback">price required!</div>
+            </div> 
+            <div class="mb-3">
+                Category: <br>
+                <label for="category1" class="form-label">Trending</label>
+                <input type="checkbox" id="category1" name="list[category]" value="Trending" checked>
+                <label for="category2" class="form-label ms-2">Rooms</label>
+                <input type="checkbox" id="category2" name="list[category]" value="Rooms" checked>
+                <label for="category3" class="form-label ms-2">iconic cities</label>
+                <input type="checkbox" id="category3" name="list[category]" value="iconic cities" checked>
+                <label for="category4" class="form-label ms-2">Castles</label>
+                <input type="checkbox" id="category4" name="list[category]" value="Castles" checked>
+                <label for="category5" class="form-label ms-2">Farm</label>
+                <input type="checkbox" id="category5" name="list[category]" value="Farm" checked>
+                <label for="category6" class="form-label ms-2">Mountains</label>
+                <input type="checkbox" id="category6" name="list[category]" value="Mountains"  checked>
+                <label for="category7" class="form-label ms-2">Amazing pools</label>
+                <input type="checkbox" id="category7" name="list[category]" value="Amazing pools"  checked>
+                <label for="category8" class="form-label ms-2">Arctic</label>
+                <input type="checkbox" id="category8" name="list[category]" value="Arctic" checked>
+                <label for="category9" class="form-label ms-2">Camping</label>
+                <input type="checkbox" id="category9" name="list[category]" value="Camping"  checked>
+                <label for="category10" class="form-label ms-2">Beach</label>
+                <input type="checkbox" id="category10" name="list[category]" value="Beach"  checked>
+                <label for="category11" class="form-label ">National park</label>
+                <input type="checkbox" id="category11" name="list[category]" value="National park"  checked>
+            </div>
+            
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="location" class="form-label">location</label>
+                    <input placeholder="location" name="list[location]" class="form-control location" required> 
+                    <div class="valid-feedback">location Looks good!</div>
+                    <div class="invalid-feedback">location required!</div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="country" class="form-label">country</label>
+                    <input placeholder="country" name="list[country]" class="form-control country" required> 
+                    <div class="valid-feedback">country Looks good!</div>
+                    <div class="invalid-feedback">country required!</div>
+                </div>
+            </div>
+            <button class="edit-btn btn btn-dark">Add</button>
+        </form>
+    </div>
+</div>
